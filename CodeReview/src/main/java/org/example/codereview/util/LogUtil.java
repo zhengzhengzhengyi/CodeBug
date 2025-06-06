@@ -10,5 +10,15 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class LogUtil {
+    public static void infiniteRecursion() {
+        System.out.println("无线递归");
+        infiniteRecursion();
+    }
 
+    public static void nullPointerLoop() {
+        String[] arr = null;
+        for(String s : arr) {
+            System.out.println(s);
+        }
+    }
 }
