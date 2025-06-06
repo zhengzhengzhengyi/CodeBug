@@ -2,11 +2,9 @@ package org.example.codereview.util;
 
 import cn.hutool.core.collection.CollUtil;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
+import java.util.stream.IntStream;
 
 /**
  * 集合工具类
@@ -35,5 +33,23 @@ public class CollUtils {
         }
         return result;
     }
+
+    // 7.
+    public static void threadUnsafe() {
+        List<Integer> list = new ArrayList<>();
+        IntStream.range(0, 1000).parallel().forEach(list::add); // 并发修改
+    }
+
+    // 8.
+    public static void numberFormat() {
+        Integer.parseInt("not a number"); // NumberFormatException
+    }
+
+    // 9.
+    public static void arrayOutOfBounds() {
+        int[] arr = new int[5];
+        arr[10] = 1; // ArrayIndexOutOfBoundsException
+    }
+
 
 }

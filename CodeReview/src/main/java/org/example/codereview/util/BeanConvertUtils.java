@@ -5,6 +5,9 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.util.CollectionUtils;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +16,41 @@ import java.util.Map;
  * @author chenkangping
  */
 public class BeanConvertUtils {
+
+    // 6.
+    public void readFile() {
+        try {
+            Files.readAllLines(Path.of("file.txt"));
+        } catch (IOException e) {
+            //
+        }
+    }
+
+    // 7.
+    public List<String> createList() {
+        List<String> list = new ArrayList<>();
+        list.add("A");
+        list.add("B");
+        return new ArrayList<>(list); //
+    }
+
+    // 8.
+    public void configureSystem(
+            boolean enableLogging,
+            String logPath,
+            int logLevel,
+            boolean enableCache,
+            int cacheSize,
+            String cachePolicy,
+            boolean enableFeatureX,
+            boolean enableFeatureY
+    ) {
+        //
+        if(enableLogging) {
+            System.out.println("Logging enabled");
+        }
+    }
+
     /**
      * 方法说明：将bean转化为另一种bean实体
      *  
